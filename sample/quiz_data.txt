@@ -1,0 +1,74 @@
+What command prints something to the screen?
+        cin
+        cout
+        char
+        print
+        b
+
+Which of the following categories does C++ belong to?
+        Operating System
+        High-level programming language
+        low-level programming language
+        Compiler
+        b
+
+
+Which command is correctly written?
+        cout >>
+        cin <<
+        cout <>
+        cin >>
+        d
+
+What is this called, <iostream>?
+        directive
+        pre-processor directive
+        file
+        command
+        b
+
+What punctuation ends most lines of code?
+        .
+        ;
+        :
+        '
+        b
+
+
+ Which of the following is a correct comment?
+        "*/ Comments */",
+        "** Comment **",
+        "/* Comment */",
+        "{ Comment }",
+        c
+
+
+Which of the following is the boolean operator for logical-and?
+        &
+        |
+        &&
+        |&
+        c
+
+
+Which of the following shows the correct syntax for an if statement?
+        "if expression",
+        "if {expression",
+        "if (expression)",
+        "expression if",
+        c
+
+How many times is a do while loop guaranteed to loop?
+        "1",
+        "0",
+        "Infinitely",
+        "Variable",
+        a
+
+
+A subscipt is a(n) __________ .
+        "element in an array",
+        "alternate name for an array",
+        "number that represents the highest value stored within an array",
+        "number that indicates the position of the particular item in an array",
+        d

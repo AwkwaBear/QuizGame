@@ -1,0 +1,36 @@
+//This is an example for the format of the questions in the text file
+//Each text file will be of a different topic
+//When the game is initialized a vector for each topic will be created
+//Question objects will be generated for each question saving the correct answer and randomizing //the answer order
+//Question object example
+class Question{
+  string question; //string to store the question
+  string answer_A; //string to store each answer
+  string answer_B;
+  string answer_C;
+  char correct;
+
+
+}
+
+//The question objects will be placed in their corresponding in the text file and placed in the vector
+//the order of the objects in the vector will then be randomized leaving a vector of random questions for the game to pull from
+
+
+//Format will be question on first line
+//(Answer 1)correct answer on second line
+//(Answer 2)wrong answer on third line
+//(Answer 3)wrong answer on fourth line
+:
+//Begin Next Question
+//(Answer 1)correct answer on second line
+//(Answer 2)wrong answer on third line
+//(Answer 3)wrong answer on fourth line
+
+//Below is an example
+What is the Capital of New York?
+Albany
+Manchester
+New York City
+:
+What is kind

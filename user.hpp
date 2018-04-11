@@ -15,6 +15,7 @@ class user{
 
 	//Overloaded Constructor
 	user(std::string n, int sc, int st, double r, double w, double t);
+
         //performs deep copy & allocates new memory
         user(const user& other);
 
@@ -37,9 +38,9 @@ class user{
         void setStats(stats s);
 
 	//get  % of player's right answers
-	double rightPerc(stats s);
+	double rightPerc(void);
 
 	//get % of player's wrong answers
-	double wrongPerc(stats s);
+	double wrongPerc(void);
 
 };

@@ -1,7 +1,10 @@
 //This is an example for the format of the questions in the text file
 //Each text file will be of a different topic
 //When the game is initialized a vector for each topic will be created
-//Question objects will be generated for each question saving the correct answer and randomizing //the answer order
+//Question objects will be generated for each question
+//Answer objects will be created using the next 4 lines and the 'int correct' value of the correct answer will be set to '1' all other answers will be '0'
+
+
 //Question object example
 
 class Question{
@@ -12,32 +15,85 @@ class Question{
   Answer a4;
 }
 
+//Answer object example
+
 class Answer{
 string a; //string to hold the answer
 int correct; //integer to check if the answer is the correct one or not 1 = correct, 2 = incorrect
 
 }
 
+//when an answer object is created it is then stored as a1-a4 based on a randomizer function
+//which is drafted in the algorithm below
+
+this will be the create_answers() function
+
+-first create a vector with 4 slots and numbers 1,2,3,4 in each
+-vectors order will be randomized into a random permutation of the 4 numbers
+-a 'for' loop will iterate through the vector and set each answer in the question object equal to the answer object created from the line of text based on the number the element is in the vectors
+
+//Example of the for loop Below
+
+
+  vector <int> order; //vector for storing order
+
+  //initialize vector with numbers 1-4
+
+  for(int i = 1; i<=4; i++){
+      order.push_back(i);
+        }
+
+  std::random_shuffle(order.begin(), order.end()); //randomize order using built in randomizer
+
+  vector<int>::iterator it; //this creates an iterator called 'it' to point to each element in the vector
+//now that the random order has been established, read in values to generate answer objects then assign them based on elements stored in the order vector
+
+  for(int i = 1; i <= 4; i++){
+
+    Answer input("read in line of text for the answer")  //call the overloaded constructor to read in the line of text and generate an answer object using it
+
+    //set the flag for the correct answer to true for the 4th answer input
+      if (i = 4){
+        input->correct = 1;
+        }
+
+    //the switch case below will use the element of the slot in the vectors
+    //to select which number variable the answer object will be saved as
+
+    switch(*it){
+      case 1: question->a1 = input; break;
+      case 2: question->a2 = input; break;
+      case 3: question->a3 = input; break;
+      case 4: question->a4 = input; break;
+
+      }
+
+    it++;   //increment the iterator with each loop iteration to move to next number selected
+
+    }
+
 //users will input a number 1-4 to select which answer they are checking, the game will run
 check_answer(input) on it which will be something along the lines of what is Below
 
-check_answer(input){
-switch(input){
-case 1: if (a1->get_correct == 1) {
-              return true;
+check_answer(int input, Question *q){
+  switch(input){
+    case 1: if (question->a1->correct == 1) {
+                  return true;
+                }
+            else{
+            return false;
           }
-        else{
-         return false;
-        }
-case 2: if (a2->get_correct == 1) {
+    case 2: if (question->a2->correct == 1) {
                 return true;
             }
           else{
          return false;
         }
-//etc etc for answers 3 and 4
-}
-}
+          //etc etc for answers 3 and 4
+    }//end switch
+}//end function
+
+
 
 //The question objects will be placed in their corresponding in the text file and placed in the vector
 //the order of the objects in the vector will then be randomized leaving a vector of random questions for the game to pull from
@@ -58,22 +114,26 @@ case 2: if (a2->get_correct == 1) {
 //Below is an example
 
 What is the Capital of New York?
-Albany
 Manchester
 New York City
 Sacramento
+Albany
 
 Which of these is not a dog?
-Calico
 Shiba Inu
 Welsh Corgi
 Doxen
+Calico
 
 
-//Below is an algorithm for how the questions will be randomized
--Create vector
+//Below is an algorithm for how the topics/questions/answers will be generated
+
+-create_topic() will be called by driver
+-Create vector of questions labeled as the topic
+  (ie. std::vector<Question> History;)
 -while loop for while text != EOF
--read in first line of text and set 'string question' equal to first line
--generate a random number 1-4 and save the number as 'int correct'
--set the string of the answer correlating to 'int correct' equal to the next line of the file
--generate a random number
+-call function create_question() read in first line of text and generate a question with 'string question' equal to first line
+-create_question() will then call the create answers function shown above
+-the question will be stored in the topic vector 
+-loop will repeat until txt file is at EOF
+-the topic vector will be randomized using std::random_shuffle()

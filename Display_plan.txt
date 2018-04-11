@@ -1,0 +1,2 @@
+//The Display will be implemented using Qt to display questions and answers
+//Timer will be displayed along with score tracked module

@@ -1,0 +1,79 @@
+//This is an example for the format of the questions in the text file
+//Each text file will be of a different topic
+//When the game is initialized a vector for each topic will be created
+//Question objects will be generated for each question saving the correct answer and randomizing //the answer order
+//Question object example
+
+class Question{
+  string question; //string to store the question
+  Answer a1; //each question will have 4 answer objects
+  Answer a2;
+  Answer a3;
+  Answer a4;
+}
+
+class Answer{
+string a; //string to hold the answer
+int correct; //integer to check if the answer is the correct one or not 1 = correct, 2 = incorrect
+
+}
+
+//users will input a number 1-4 to select which answer they are checking, the game will run
+check_answer(input) on it which will be something along the lines of what is Below
+
+check_answer(input){
+switch(input){
+case 1: if (a1->get_correct == 1) {
+              return true;
+          }
+        else{
+         return false;
+        }
+case 2: if (a2->get_correct == 1) {
+                return true;
+            }
+          else{
+         return false;
+        }
+//etc etc for answers 3 and 4
+}
+}
+
+//The question objects will be placed in their corresponding in the text file and placed in the vector
+//the order of the objects in the vector will then be randomized leaving a vector of random questions for the game to pull from
+
+
+//(Question) Format will be question on first line
+//(Answer 1)Correct answer on second line
+//(Answer 2)answer on third line
+//(Answer 3)answer on fourth line
+//(Answer 4)answer on 5th line
+
+//Begin Next Question
+//(Answer 1)correct answer on second line
+//(Answer 2)wrong answer on third line
+//(Answer 3)wrong answer on fourth line
+//(letter of correct answer)
+
+//Below is an example
+
+What is the Capital of New York?
+Albany
+Manchester
+New York City
+Sacramento
+
+Which of these is not a dog?
+Calico
+Shiba Inu
+Welsh Corgi
+Doxen
+
+
+//Below is an algorithm for how the questions will be randomized
+-Create vector
+-while loop for while text != EOF
+-read in first line of text and set 'string question' equal to first line
+-generate a random number 1-4 and save the number as 'int correct'
+-set the string of the answer correlating to 'int correct' equal to the next line of the file
+-generate a random number

@@ -61,7 +61,7 @@ Which of the following shows the correct syntax for an if statement?
 How many times is a do while loop guaranteed to loop?
         "1",
         "0",
-        "Infinitely",
+        Infinitely",
         "Variable",
         a
 

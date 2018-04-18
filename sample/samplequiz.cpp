@@ -5,6 +5,13 @@
 #include <vector>
 #include <algorithm>
 #include <random>
+#include <stdio.h>
+#include <curses.h>
+#include <GL/gl.h>
+#include <GL/glu.h>
+#include <GL/glx.h>
+#include <unistd.h>
+
 namespace {
     const int s_questionScore = 10;  // Points rewarded for each correct answer.
     const int s_failingGrade = 60;
@@ -93,6 +100,7 @@ std::istream& operator >> (std::istream& is, Question& ques)
     getline(is, ques.answer_2);
     getline(is, ques.answer_3);
     getline(is, ques.answer_4);
+
     is >> ques.correct_answer;
     return is;
 }
@@ -107,6 +115,9 @@ void load(std::istream& is, std::vector<Question>& questions)
 int Question::askQuestion(int num) //Ask the question.
 {
     int score = 0;
+    int s = 5;
+    int sec;
+    char guess = ' ';
     std::cout << "\n";
     if (num > 0)
         std::cout << num << ".) ";
@@ -117,16 +128,36 @@ int Question::askQuestion(int num) //Ask the question.
     std::cout << "d. " << answer_4 << "\n";
 
     //Ask user for their answer.
-    char guess = ' ';
-    PositionCursor();
     std::cout << s_promptAnswer;
-    std::cin >> guess;
+    for (int sec = s; sec >= 0; sec--)
+    {
 
-    if (guess == correct_answer) {
-        std::cout << s_winMessage;
-        score = s_questionScore;
-        std::cin.get();
-        std::cin.get();
+
+
+      usleep(1000000);
+      std::cout << sec  << std::endl;
+
+    }
+
+    if ( sec == 0 ){
+      s = 59;
+      guess = 'z';
+
+      std::cout << s_loseMessage << correct_answer << ".\n";
+      std::cin.get();
+      std::cin.get();
+      usleep(100000);
+      return score;
+    }
+    else
+    {
+      //PositionCursor();
+      std::cin >> guess;
+      if (guess == correct_answer) {
+      std::cout << s_winMessage;
+      score = s_questionScore;
+      std::cin.get();
+      std::cin.get();
     }
     else
     {
@@ -134,7 +165,11 @@ int Question::askQuestion(int num) //Ask the question.
         std::cin.get();
         std::cin.get();
     }
+
+    usleep(100000);
     return score;
+  }
+
 }
 
 void Shuffle(std::vector<Question>& questions) //Shuffle the questions.

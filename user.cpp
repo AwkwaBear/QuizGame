@@ -1,21 +1,23 @@
 #include "user.hpp"
+#include "info.hpp"
 
 //Default Constructor
 user::user(){
 	name = "";
 	score = 0;
 	standing = 0;
-	stats info();
+	answer = 0;
+	info stats();
 }
 
 //Overloaded Constructor
-user::user(std::string n, int sc, int st, double r, double w, double t){
+user::user(std::string n, int sc, int st,int ans, double r, double w, double t){
 	name = n;
 	score = sc;
 	standing = st;
-	info.setR(r);
-	info.setW(w);
-	infor.setT(t);
+	stats.setR(r);
+	stats.setW(w);
+	stats.setT(t);
 }
 
 //perform deep copy & allocate new memory
@@ -46,8 +48,12 @@ int user::getStanding(void){
 	return standing;
 }
 
-stats user::getStats(void){
-	return info;
+int user::getAnswer(void){
+	return answer;
+}
+
+info user::getStats(void){
+	return stats;
 }
 
 //Setters
@@ -63,18 +69,21 @@ void user::setStanding(int s){
 	standing = s;
 }
 
-void user::setStats(stats s){
-	info = s;
+void user::setAnswer(int a){
+	answer = a;
+}
+void user::setStats(info s){
+	stats = s;
 }
 
 //get  % of player's right answers
 double rightPerc(void){
-	return info.getRight();
+	return stats.getRight();
 }
 
 //get % of player's wrong answers
 double wrongPerc(void){
-	return info.getWrong();
+	return stats.getWrong();
 }
 
 

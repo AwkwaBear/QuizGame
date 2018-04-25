@@ -9,9 +9,8 @@ private:
 
 public:
 
-  topic(vector<std::string> txt);
+topic generate_topic_cpp();
 
-  void generate_topics();
 
 }
 

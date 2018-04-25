@@ -3,6 +3,7 @@
 #include "answers.hpp"
 
 class question{
+
   private:
     string q;
     answer a1;
@@ -12,4 +13,7 @@ class question{
 
   public:
 
+std::string get_question();
+
+void set_question(std::string);
 }

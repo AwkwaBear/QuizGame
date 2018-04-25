@@ -3,9 +3,10 @@
 #include "questions.hpp"
 
 
+
 class topic {
 private:
-  std::vector<question> q;
+  std::vector<question> topic;
 
 public:
 

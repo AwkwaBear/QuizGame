@@ -10,12 +10,21 @@ class answer{
     int correct;
 
   public:
+  //overloaded constructor
+  answer(std::string s);
 
-    //Create Answers function will take in the vector of the text file and location of the iterator
-    //and generate an answer object
-    create_answers(vector<std::string> s, std::string *txtit);
+  //function to set string for answer
+  void set_answer(std::string);
 
-    check_answer(int input, Question *q);
+  //Set correct value in Function
+  void set_correct();
+
+  //Create Answers function will take in the vector of the text file and location of the iterator
+  //and generate an answer object
+  void create_answers(vector<std::string> s, std::string *txtit);
+
+  //Function to check if answer is correct
+  bool check_answer(int input, answer a);
 
   }
 

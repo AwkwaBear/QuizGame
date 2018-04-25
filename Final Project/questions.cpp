@@ -1,15 +1,13 @@
 #include <iostream>
-#include <string>
-#include <vector>
+#include "questions.hpp"
 
-class question{
-  private:
-    string q;
-    answer a1;
-    answer a2;
-    answer a3;
-    answer a4;
 
-  public:
-    question()
+
+std::string question::get_question(){
+      return q;
+    }
+
+  void question::set_question(std::string input){
+      q = input;
+    }
 }

@@ -1,6 +1,6 @@
-#include <iostream>
-#include <string>
-#include <vector>
+#ifndef QUESTIONS_H
+#define QUESTIONS_H
+#include "answers.hpp"
 
 class question{
   private:
@@ -11,5 +11,5 @@ class question{
     answer a4;
 
   public:
-    question()
+
 }

@@ -11,28 +11,8 @@ user::user(){
 }
 
 //Overloaded Constructor
-user::user(std::string n, int sc, int st,int ans, double r, double w, double t){
+user::user(std::string n){
 	name = n;
-	score = sc;
-	standing = st;
-	stats.setR(r);
-	stats.setW(w);
-	stats.setT(t);
-}
-
-//perform deep copy & allocate new memory
-user::user(const user& other){
-
-}
-
-//takes contents of another user an clears info of other user
-user::user(user&& other){
-
-}
-
-//deallocates memory
-user::~user(){
-
 }
 
 //Getters

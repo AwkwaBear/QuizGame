@@ -16,16 +16,7 @@ class user{
         user();
 
 	//Overloaded Constructor
-	user(std::string n, int sc, int st, int ans, double r, double w, double t);
-
-        //performs deep copy & allocates new memory
-        user(const user& other);
-
-        //Takes contents of another user and clears info of other user
-        user(user&& other);
-
-        //deallocate memory
-        ~user();
+	user(std::string n);
 
         //Get functions
         std::string getName(void);

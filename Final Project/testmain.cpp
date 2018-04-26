@@ -6,14 +6,16 @@
 int main(){
 
   topic cpp;
+  std::cout << "main running" << std::endl;
+  cpp.generate_topic_cpp();
 
-  cpp->topic = generate_topic_cpp();
+  std::vector<question>::iterator it;
 
-  std::vector<std::string>::iterator it;
+  for(it = cpp.get_topic().begin(); it != cpp.get_topic().end(); it++){
 
-  for( it = cpp->topic.begin(); it != NULL; it++){
+    std::cout << "for loop running" << std::endl;
+    std::cout << it->get_question() << std::endl;
 
-    std::cout << *it->q << endl;
 
   }
 

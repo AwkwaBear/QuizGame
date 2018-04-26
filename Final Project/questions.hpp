@@ -29,7 +29,7 @@ answer get_answer(int i);
 void set_question(std::string);
 
 //Create associated answers function
-void create_answers(std::vector<std::string> s, std::string *txtit);
+void create_answers(std::vector<std::string> txt, std::vector<std::string>::iterator txtit);
 };
 
 #endif

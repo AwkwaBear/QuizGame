@@ -31,7 +31,7 @@ class answer{
   //void create_answers(std::vector<std::string> s, std::string *txtit);
 
   //Function to check if answer is correct
-  bool check_answer(int input, answer a);
+  int check_answer();
 
 };
 #include "questions.hpp"

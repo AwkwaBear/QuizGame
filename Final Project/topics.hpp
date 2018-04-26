@@ -8,11 +8,15 @@
 class topic{
 
 private:
-  std::vector<question> topic;
+  std::vector<question> questions;
 
 public:
 
-std::vector<question> generate_topic_cpp();
+//Getter for overall topic vector
+std::vector<question> get_topic();
+
+//Initializer for Topic on C++
+void generate_topic_cpp();
 
 //topic generate_topic_hawaii();
 

@@ -1,20 +1,43 @@
 #include <iostream>
 #include "questions.hpp"
 
-question::question(std::string s) : q(s) {}
+question::question(): q(" "){std::cout << "blank question created" << std::endl;}
+
+question::question(std::string s) : q(s) {std::cout << "actual question generated" << std::endl;}
 
 
 
 std::string question::get_question(){
+  std::cout << "get question called" << std::endl;
+
       return q;
     }
 
   void question::set_question(std::string input){
+    std::cout << "set question called" << std::endl;
       q = input;
     }
 
+  answer question::get_answer(int i){
+    std::cout << "get answer called" << std::endl;
+    switch(i){//begin switch
+      case 1: return this->a1;
+
+      case 2: return this->a2;
+
+      case 3: return this->a3;
+
+      case 4: return this->a4;
+
+    }//end switch
+
+  }//end function
+
+
   //Create Answers function will take in the vector of the text file and location of the iterator
-  void question::create_answers(std::vector<std::string> txt, std::string *txtit){
+  void question::create_answers(std::vector<std::string> txt, std::vector<std::string>::iterator txtit){
+
+    std::cout << "create answers called" << std::endl;
 
     //The below section will produce a random permutation of slots 1-4 for the answers to be displayed
 

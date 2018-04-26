@@ -3,10 +3,10 @@
 
 
 //Default Constructor
-answer::answer(): a(" "), correct(0){}
+answer::answer(): a(" "), correct(0){std::cout << "making blank answer" << std::endl;}
 
 //Overloaded Constructor
-answer::answer(std::string s): a(s), correct(0){}
+answer::answer(std::string s): a(s), correct(0){std::cout << "creating new answer" << std::endl;}
 
 //function to set
 void answer::set_answer(std::string s){
@@ -60,33 +60,7 @@ void answer::create_answers(std::vector<std::string> txt, std::string *txtit){
       orderit++; //iterate the order iterator
       }
     }//end function
-
-bool check_answer(int input, answer a){
-      switch(input){
-        case 1: if (question->a1.check_answer() == 1) {
-                      return true;
-                    }
-                else{
-                return false;
-              }
-        case 2: if (question->a2.check_answer() == 1) {
-                      return true;
-                    }
-                else{
-                return false;
-              }
-        case 3: if (question->a3.check_answer() == 1) {
-                      return true;
-                    }
-                else{
-                return false;
-              }
-        case 4: if (question->a4.check_answer() == 1) {
-                      return true;
-                    }
-                else{
-                return false;
-              }
-      }
-    }
 */
+int answer::check_answer(){
+      return this->correct;
+      }

@@ -1,4 +1,5 @@
 #include <iostream>
+#include <fstream>
 #include "topics.hpp"
 
 //this function will call create a topic which holds a vector
@@ -25,7 +26,7 @@ std::vector<question> topic::generate_topic_cpp(){//begin function
   if(!myfile){//begin if
     std::cout << "Error opening output file" << std::endl;
           system("pause");
-          return -1;
+          return;
       }//end if
 
   //While loop will read in file and store in a vector
@@ -48,7 +49,7 @@ std::vector<question> topic::generate_topic_cpp(){//begin function
 
     //use subsequent lines of text to generate 4 answers
     //and iterate pointer accordingly
-    current->a1.create_answers(txt, txtit);
+    current.a1.create_answers(txt, txtit);
     txtit += 4;
 
 

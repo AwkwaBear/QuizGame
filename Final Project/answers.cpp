@@ -6,7 +6,7 @@
 answer::answer(): a(" "), correct(0){}
 
 //Overloaded Constructor
-answer::answer(std::string s): a(s) correct(0){}
+answer::answer(std::string s): a(s), correct(0){}
 
 //function to set
 void answer::set_answer(std::string s){
@@ -14,18 +14,18 @@ void answer::set_answer(std::string s){
 }
 
 //Set as correct answer
-void set_correct(){
+void answer::set_correct(){
   this->correct = 1;
 }
 
-
+/*
 //Create Answers function will take in the vector of the text file and location of the iterator
-void answer::create_answers(vector<std::string> txt, std::string *txtit){
+void answer::create_answers(std::vector<std::string> txt, std::string *txtit){
 
   //The below section will produce a random permutation of slots 1-4 for the answers to be displayed
 
   //A vector is generated and numbers 1-4 are pushed in as the elements via 'for' loop
-    vector <int> order;
+    std::vector<int> order;
 
     for(int i = 1; i <= 4; i++){
         order.push_back(i);
@@ -34,7 +34,7 @@ void answer::create_answers(vector<std::string> txt, std::string *txtit){
       std::random_shuffle(order.begin(), order.end());
 
   //an iterator is created for navigating the order vector
-      vector<int>::iterator orderit;
+      std::vector<int>::iterator orderit;
 
   //the a for loop will iterate through the order array and
   //set the answers to follow the permutation
@@ -43,7 +43,7 @@ void answer::create_answers(vector<std::string> txt, std::string *txtit){
         answer input(*txtit);
 
         if(i = 4){
-          input->correct = 1;
+          input.set_correct();
         }
 
       switch(*orderit){
@@ -63,25 +63,25 @@ void answer::create_answers(vector<std::string> txt, std::string *txtit){
 
 bool check_answer(int input, answer a){
       switch(input){
-        case 1: if (question->a1->correct == 1) {
+        case 1: if (question->a1.check_answer() == 1) {
                       return true;
                     }
                 else{
                 return false;
               }
-        case 2: if (question->a2->correct == 1) {
+        case 2: if (question->a2.check_answer() == 1) {
                       return true;
                     }
                 else{
                 return false;
               }
-        case 3: if (question->a3->correct == 1) {
+        case 3: if (question->a3.check_answer() == 1) {
                       return true;
                     }
                 else{
                 return false;
               }
-        case 4: if (question->a4->correct == 1) {
+        case 4: if (question->a4.check_answer() == 1) {
                       return true;
                     }
                 else{
@@ -89,4 +89,4 @@ bool check_answer(int input, answer a){
               }
       }
     }
-}
+*/

@@ -1,10 +1,12 @@
 #ifndef TOPICS_H
 #define TOPICS_H
 #include "questions.hpp"
+#include <vector>
 
 
 
-class topic {
+class topic{
+
 private:
   std::vector<question> topic;
 
@@ -19,7 +21,7 @@ std::vector<question> generate_topic_cpp();
 //topic generate_topic_popculture();
 
 
-}
+};
 
 
 #endif

@@ -56,7 +56,9 @@ std::cout << "topic generating" << std::endl;
     question current;
 
     //use string to create a question and iterate to next line
-    current.set_question(*txtit); std::cout << current.get_question() << std::endl;
+    current.set_question(*txtit);
+
+    std::cout << current.get_question() << std::endl;
     txtit++;
 
     //use subsequent lines of text to generate 4 answers

@@ -7,7 +7,6 @@
 
 // Forward declarations
 class QuizCategorySelection;
-class QuizSubCategorySelection;
 
 class QLineEdit;
 class QPushButton;
@@ -74,14 +73,7 @@ class QuizWindow : public QMainWindow
      */
     QuizCategorySelection* mCategorySelectionP[mMaxNumberCategories];
 
-    /**
-     * List for combo boxes for possible subcategories.
-     */
-    QuizSubCategorySelection* mSubCategorySelectionP[mMaxNumberCategories];
 
-    /**
-     * Maximum number of players.
-     */
     static const int mMaxNumberPlayers = 4;
 
     /**

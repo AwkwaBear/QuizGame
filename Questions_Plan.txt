@@ -137,3 +137,4 @@ Calico
 -the question will be stored in the topic vector 
 -loop will repeat until txt file is at EOF
 -the topic vector will be randomized using std::random_shuffle()
+

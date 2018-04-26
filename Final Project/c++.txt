@@ -3,145 +3,121 @@ What command prints something to the screen?
 "char"
 "print"
 "cout"
-:
 Which of the following categories does C++ belong to?
 Operating System
 Compiler
 Low-Level Programming Language
 High-Level Programming Language
-:
 Which command is correctly written?
 "cout>>"
 "cin<<"
 "cout<>"
 "cin>>"
-:
 What is "<iostream>" classified as?
 Directive
 File
 Command
 Pre-Processor Directive
-:
 What punctuation ends most lines of code?
 "."
 ":"
 "'"
 ";"
-:
 Which one of the following is a valid comment?
 */ Comment */
 ** Comment **
 { Comment }
 /* Comment */
-:
 Which of the following is the boolean operator for logical "and"?
 "&"
 "|"
 "|&"
 "&&"
-:
 Which of the following shows the correct syntax for an "if" statement?
 "if expression"
 "if {expression"
 "expression if"
 "if (expression)"
-:
 How many times is a while loop guaranteed to loop?
 0
 Infinitely
 Variably
 1
-:
 A subscript is a(n):
 Element in an array
 Alternate name for an array
 Number that represents the highest value stored within an array
 Number that indicates the position of the particular item in an array
-:
 Which of the following correctly declares an array?
 "int array"
 "array{10};"
 "array array[10];"
 "int array[10];"
-:
 What is the index number of the last element of an array with 29 elements?
 29
 0
 Programmer defined
 28
-:
 Which is not a loop structure?
 "for"
 "do while"
 "while"
 "repeat until"
-:
 When does the code black "while(x < 100)" execute?
 When x is greater than 100
 When x is equal to 100
 While it wishes
 When x is less than 100
-:
 What do most programmers use a "for" loop for?
 For every loop they write
 When a loop will not repeat
 When they do not know the exact number of times a loop will repeat
 When they know the exact number of times a loop will repeat
-:
 What is adding 1 to a variable is also called?
 Digesting
 Resetting
 Decrementing
 Incrementing
-:
 What is required to avoid falling through from one case to the next?
 "end;"
 "stop;"
 A semicolon
 "break;"
-:
 What do you call a variable that is set to indicate whether some event has occurred?
 Subscript
 Banner
 Counter
 Flag
-:
 Identify the Linux C++ Compiler
 Borland
 vc++
 cpp
 g++
-:
 What is the size of "int"?
 2
 4
 8
 Compiler dependent
-:
 Which data type can be used to hold a wide character?
 unsigned char
 int
 None of these
 wchar
-:
 C++ does not support which of the following?
 Multilevel inheritance
 Hierarchical inheritance
 Hybrid inheritance
 None of these
-:
 Which is not a protection level provided by classes in C++?
 Protected
 Private
 Public
 Hidden
-:
 What purpose do classes serve?
 Data encapsulation
 Providing a convenient way of modeling real-world objects
 Simplifying code reuse
 All of these
-:
 Who developed the C++ language?
 Steve Jobs
 Linus Torvalds

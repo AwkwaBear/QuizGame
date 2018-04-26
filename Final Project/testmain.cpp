@@ -8,6 +8,7 @@ int main(){
   topic cpp;
   std::cout << "main running" << std::endl;
   cpp.generate_topic_cpp();
+std::cout << "topic fully generated" << std::endl;
 
   std::vector<question>::iterator it;
 

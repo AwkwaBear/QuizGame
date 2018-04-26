@@ -3,10 +3,10 @@
 
 
 //Default Constructor
-answer::answer(): a(" "), correct(0){std::cout << "making blank answer" << std::endl;}
+answer::answer(): a(" "), correct(0){}
 
 //Overloaded Constructor
-answer::answer(std::string s): a(s), correct(0){std::cout << "creating new answer" << std::endl;}
+answer::answer(std::string s): a(s), correct(0){}
 
 //function to set
 void answer::set_answer(std::string s){

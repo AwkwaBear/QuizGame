@@ -10,7 +10,13 @@ private:
 
 public:
 
-topic generate_topic_cpp();
+std::vector<question> generate_topic_cpp();
+
+//topic generate_topic_hawaii();
+
+//topic generate_topic_history();
+
+//topic generate_topic_popculture();
 
 
 }

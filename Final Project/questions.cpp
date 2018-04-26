@@ -1,6 +1,8 @@
 #include <iostream>
 #include "questions.hpp"
 
+question::question(std::string s) : q(s) {}
+
 
 
 std::string question::get_question(){

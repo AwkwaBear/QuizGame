@@ -1,6 +1,10 @@
 #include <iostream>
 #include "answers.hpp"
 
+
+//Default Constructor
+answer::answer(): a(" "), correct(0){}
+
 //Overloaded Constructor
 answer::answer(std::string s): a(s) correct(0){}
 
@@ -37,7 +41,10 @@ void answer::create_answers(vector<std::string> txt, std::string *txtit){
       for(int i = 1; i <= 4; i++){
 
         answer input(*txtit);
-        if(i = 4){input->correct = 1;}
+
+        if(i = 4){
+          input->correct = 1;
+        }
 
       switch(*orderit){
         case 1: question->a1 = input; txtit++;

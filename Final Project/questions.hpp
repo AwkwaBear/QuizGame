@@ -13,7 +13,16 @@ class question{
 
   public:
 
+//Default Constructor
+question();
+
+//Overloaded Constructor Function
+question(std::string s);
+
+//Getter Function
 std::string get_question();
 
+//Setter Function
 void set_question(std::string);
+
 }

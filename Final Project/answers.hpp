@@ -10,6 +10,10 @@ class answer{
     int correct;
 
   public:
+
+  //Default Constructor
+  answer();
+
   //overloaded constructor
   answer(std::string s);
 

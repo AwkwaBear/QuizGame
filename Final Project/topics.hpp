@@ -11,10 +11,10 @@ private:
   std::vector<question> questions;
 
 public:
+//Getter for overall topic vector beginning
+std::vector<question>::iterator get_topic_begin();
 
-//Getter for overall topic vector
-std::vector<question> get_topic();
-
+std::vector<question>::iterator get_topic_end();
 //Initializer for Topic on C++
 void generate_topic_cpp();
 

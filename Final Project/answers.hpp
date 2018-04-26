@@ -23,6 +23,9 @@ class answer{
   //function to set string for answer
   void set_answer(std::string);
 
+  //read answer Function
+  std::string read_answer();
+
   //Set correct value in Function
   void set_correct();
 

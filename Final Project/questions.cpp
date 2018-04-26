@@ -57,6 +57,11 @@ std::string question::get_question(){
     //an iterator is created for navigating the order vector
         std::vector<int>::iterator orderit;
 
+for(orderit = order.begin(); orderit != order.end(); orderit++){
+  std::cout << *orderit << std::endl;
+}
+
+
     //the a for loop will iterate through the order array andquestion
     //set the answers to follow the permutation
         for(orderit = order.begin(); orderit != order.end(); orderit++){
@@ -68,17 +73,16 @@ std::string question::get_question(){
           }
 
         switch(*orderit){
-          case 1: this->a1 = input; txtit++;std::cout << "answer slot 1 placed" << std::endl;
+          case 1: this->a1 = input; std::cout << "answer slot 1 placed" << std::endl;
             break;
-          case 2: this->a2 = input; txtit++;std::cout << "answer slot 2 placed" << std::endl;
+          case 2: this->a2 = input; std::cout << "answer slot 2 placed" << std::endl;
             break;
-          case 3: this->a3 = input; txtit++;std::cout << "answer slot 3 placed" << std::endl;
+          case 3: this->a3 = input; std::cout << "answer slot 3 placed" << std::endl;
             break;
-          case 4: this->a4 = input; txtit++;std::cout << "answer slot 4 placed" << std::endl;
+          case 4: this->a4 = input; std::cout << "answer slot 4 placed" << std::endl;
             break;
         }
 
         txtit++;
-        orderit++; //iterate the order iterator
       }//end for
     }//end function

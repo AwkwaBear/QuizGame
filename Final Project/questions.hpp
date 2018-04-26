@@ -20,8 +20,10 @@ question();
 //Overloaded Constructor Function
 question(std::string s);
 
-//Getter Function
+//Getter Functions
 std::string get_question();
+
+answer get_answer(int i);
 
 //Setter Function
 void set_question(std::string);

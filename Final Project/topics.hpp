@@ -18,11 +18,11 @@ std::vector<question>::iterator get_topic_end();
 //Initializer for Topic on C++
 void generate_topic_cpp();
 
-//topic generate_topic_hawaii();
+void generate_topic_hawaii();
 
-//topic generate_topic_history();
+void generate_topic_pop();
 
-//topic generate_topic_popculture();
+void generate_topic_history();
 
 
 };

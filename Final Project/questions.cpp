@@ -1,9 +1,11 @@
 #include <iostream>
 #include "questions.hpp"
 
-question::question(): q(" "){std::cout << "blank question created" << std::endl;}
+question::question(): q(" "){//std::cout << "blank question created" << std::endl;
+}
 
-question::question(std::string s) : q(s) {std::cout << "actual question generated" << std::endl;}
+question::question(std::string s) : q(s) {//std::cout << "actual question generated" << std::endl;
+}
 
 
 
@@ -52,37 +54,44 @@ std::string question::get_question(){
 
     //randomizer function is called to reorder the numbers into a random permutation
         std::random_shuffle(order.begin(), order.end());
-        std::cout << "order vector permuted" << std::endl;
+//        std::cout << "order vector permuted" << std::endl;
 
     //an iterator is created for navigating the order vector
         std::vector<int>::iterator orderit;
 
-for(orderit = order.begin(); orderit != order.end(); orderit++){
-  std::cout << *orderit << std::endl;
-}
+int i = 1;//initialize counter to check for 4th answer
 
+//Below is a debug to view order permutation before answer placement
+/*  for(orderit = order.begin(); orderit != order.end(); orderit++){
+    std::cout << *orderit << std::endl;
+    }
+*/
 
     //the a for loop will iterate through the order array andquestion
     //set the answers to follow the permutation
         for(orderit = order.begin(); orderit != order.end(); orderit++){
-          std::cout << "order to place is " << *orderit << std::endl;
+//          std::cout << "order to place is " << *orderit << std::endl;
           answer input(*txtit);
 
-          if(*orderit == 4){
+          if(i == 4){
               input.set_correct();
           }
 
         switch(*orderit){
-          case 1: this->a1 = input; std::cout << "answer slot 1 placed" << std::endl;
+          case 1: this->a1 = input;
+//          std::cout << "answer slot 1 placed" << std::endl;
             break;
-          case 2: this->a2 = input; std::cout << "answer slot 2 placed" << std::endl;
+          case 2: this->a2 = input;
+//          std::cout << "answer slot 2 placed" << std::endl;
             break;
-          case 3: this->a3 = input; std::cout << "answer slot 3 placed" << std::endl;
+          case 3: this->a3 = input;
+//          std::cout << "answer slot 3 placed" << std::endl;
             break;
-          case 4: this->a4 = input; std::cout << "answer slot 4 placed" << std::endl;
+          case 4: this->a4 = input;
+//          std::cout << "answer slot 4 placed" << std::endl;
             break;
         }
-
+        i++;
         txtit++;
       }//end for
     }//end function

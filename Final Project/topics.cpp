@@ -8,7 +8,7 @@
 
 
 std::vector<question>::iterator topic::get_topic_begin(){
-  std::cout << "topic begin getted" << std::endl;
+//  std::cout << "topic begin getted" << std::endl;
   return questions.begin();
 
 }

@@ -1,3 +1,3 @@
-test_display: main.cpp 
-	g++ -c main.cpp
-	g++ main.o -o sfml-app -lsfml-graphics -lsfml-window -lsfml-system
+test_display: main.cpp
+	g++ -c intro.hpp intro.cpp main.cpp
+	g++ main.o intro.o -o sfml-app -lsfml-graphics -lsfml-window -lsfml-system

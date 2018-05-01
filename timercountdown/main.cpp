@@ -18,7 +18,7 @@ int main()
 
 
     sf::Clock clock; // starts the clock
-    sf::Time elapsed1; // set time object
+    sf::Time elapsed; // set time object
 
     int intSecondsCounted;
     int timeRemaining;
@@ -30,34 +30,34 @@ int main()
     while (window.isOpen())
     {
         // handle events
-
         sf::Event event;
         while (window.pollEvent(event))
         {
+            //If user clicked a window, it stops the whole program or the clock
             if(event.type == sf::Event::Closed)
                 window.close();
+            //When a character is pressed, restart the clock
             if(event.type == sf::Event::KeyReleased)
                 clock.restart();
         }
-
-
-        elapsed1 = clock.getElapsedTime();
-        timeRemaining = 10 - floor(elapsed1.asSeconds());
+        // set the timer
+        elapsed = clock.getElapsedTime();
+        // set the countdown timer by 10 seconds
+        timeRemaining = 10 - floor(elapsed.asSeconds());
+                //When the countdown timer reaches 0, restart the clock
+                if(timeRemaining == 0)
+                {
+                  clock.restart();
+                }
 
         ss.str(std::string()); //clear the string
         ss << std::endl << "Time Remaining " << " : " << timeRemaining;
-
-        if(timeRemaining == 0)
-        {
-          clock.restart();
-        }
-
+        //Display
         text.setString( ss.str().c_str() );
         window.draw(text);
         window.display();
         window.clear();
 
     }
-
     return 0;
 }

@@ -10,12 +10,16 @@ int main()
     sf::Font font;
     font.loadFromFile("times.ttf");
 
+
     sf::Text text;
     text.setFont(font);
-    text.setPosition(100,450);
+    text.setPosition(300,490);
     text.setCharacterSize(40);
-    text.setColor(sf::Color::White);
+    text.setColor(sf::Color::Black);
 
+    sf::Texture texture;
+    texture.loadFromFile("800x600.png");
+    sf::Sprite background(texture);
 
     sf::Clock clock; // starts the clock
     sf::Time elapsed; // set time object
@@ -51,9 +55,10 @@ int main()
                 }
 
         ss.str(std::string()); //clear the string
-        ss << std::endl << "Time Remaining " << " : " << timeRemaining;
+        ss << std::endl << timeRemaining;
         //Display
         text.setString( ss.str().c_str() );
+        window.draw(background);
         window.draw(text);
         window.display();
         window.clear();

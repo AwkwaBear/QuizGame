@@ -1,6 +1,11 @@
 #include <SFML/Graphics.hpp>
+#include "Keyboard.hpp"
 #include <sstream>
 #include <cmath>
+#include <string>
+#include <iostream>
+
+
 
 
 
@@ -31,19 +36,21 @@ int main()
     sf::RenderWindow window(sf::VideoMode(800, 600), "Countdown Timer");
     // run the main loop
 
-    while (window.isOpen())
-    {
-        // handle events
+    window.setKeyRepeatEnabled(false);
+    while (window.isOpen()) {
         sf::Event event;
-        while (window.pollEvent(event))
-        {
-            //If user clicked a window, it stops the whole program or the clock
-            if(event.type == sf::Event::Closed)
+        while (window.pollEvent(event)) {
+            if (event.type == sf::Event::Closed) {
                 window.close();
-            //When a character is pressed, restart the clock
-            if(event.type == sf::Event::KeyReleased)
-                clock.restart();
+            }
+            else if(event.type == sf::Event::KeyPressed) {
+                if(event.key.code == sf::Keyboard::Num1 || event.key.code == sf::Keyboard::Num2 ||
+                   event.key.code == sf::Keyboard::Num3 || event.key.code == sf::Keyboard::Num4) {
+                    clock.restart();
+                }
+            }
         }
+
         // set the timer
         elapsed = clock.getElapsedTime();
         // set the countdown timer by 10 seconds

@@ -32,6 +32,9 @@ class user{
 	void setAnswer(int a);
         void setStats(info s);
 
+	double getRight(void);
+	double getWrong(void);
+
 	//get  % of player's right answers
 	double rightPerc(void);
 

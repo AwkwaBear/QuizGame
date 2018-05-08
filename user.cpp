@@ -56,6 +56,14 @@ void user::setStats(info s){
 	stats = s;
 }
 
+double getRight(void){
+	return stats.getR();
+}
+
+double getWrong(void){
+	return stats.getW();
+}
+
 //get  % of player's right answers
 double rightPerc(void){
 	return stats.getRight();

@@ -1,8 +1,9 @@
 #include "enter_names.hpp"
 
 
-int enter_names(sf::RenderWindow &window, int * px)
+int enter_names(sf::RenderWindow &window, int * px, std::vector<std::string> names)
 {
+
   std::cout << "Enter users screen running" << std::endl;
     //Load Background picture and create texture object
     sf::Texture texture;
@@ -17,6 +18,9 @@ int enter_names(sf::RenderWindow &window, int * px)
       // error message
       std::cout << "ERROR: Patchy Robots Font Unable to Load" << std::endl;
   }
+
+  //Variable to store amount of players to name
+  int usersleft = *px;
 
     //Set texture as a sprite
     sf::Sprite background(texture);
@@ -116,8 +120,12 @@ int enter_names(sf::RenderWindow &window, int * px)
                   if(event.mouseButton.x < 375 && event.mouseButton.x > 275 && event.mouseButton.y < 400 && event.mouseButton.y > 300){
 
                     std::cout << "Enter Button clicked" <<std::endl;
+                    usersleft--;
+                    std::cout << "users left: " << usersleft << std::endl;
 
-  //                  return 3;
+                    if(usersleft == 0){
+                    return 4;
+                    }
                   }
 
 
@@ -125,15 +133,23 @@ int enter_names(sf::RenderWindow &window, int * px)
               }
           if (event.type == sf::Event::TextEntered){
               if(event.text.unicode < 128){
+                if(event.text.unicode == '\b'){
+
+                  playerinput.erase(playerinput.getSize()-1, 1);
+                  playertxt.setString(playerinput);
+                }
+                else{
                   playerinput +=event.text.unicode;
                   playertxt.setString(playerinput);
                 }
               }
+          }
             window.draw(playertxt);
             window.display();
-          }
+    }
 
-
+    window.draw(playertxt);
+    window.display();
         // end the current frame
         window.display();
 

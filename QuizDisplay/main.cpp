@@ -14,6 +14,7 @@ int main(){
   int gamestate = 1;
   int players = 0;
   int * playerspx = &players;
+  std::vector<std::string> names;
 
   sf::Event event;
   while (window.isOpen())
@@ -29,7 +30,7 @@ int main(){
       std::cout <<"back to main gamestate is: " << gamestate <<"  users selected: " << *playerspx << std::endl;
       // "close requested" event: we close the window
       if(gamestate == 3){
-        gamestate = enter_names(window,playerspx);
+        gamestate = enter_names(window,playerspx,names);
       }
 
       if (event.type == sf::Event::Closed || gamestate == 0){//begin if

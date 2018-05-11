@@ -172,7 +172,7 @@ int enter_users(sf::RenderWindow &window, int * px)
                   //If buton 4 is pressed
                   if(event.mouseButton.x < 525 && event.mouseButton.x > 425 && event.mouseButton.y < 550 && event.mouseButton.y > 450){
 
-                    *px = 1;
+                    *px = 4;
 
                     std::cout << "button 4 clicked" <<std::endl;
 

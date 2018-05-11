@@ -6,6 +6,6 @@
 #include <SFML/System.hpp>
 #include <iostream>
 
-int enter_names(sf::RenderWindow &window, int *px, std::vector<std::string> names);
+int enter_names(sf::RenderWindow &window, int *px, std::vector<std::string> &names);
 
 #endif

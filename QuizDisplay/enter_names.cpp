@@ -1,7 +1,7 @@
 #include "enter_names.hpp"
 
 
-int enter_names(sf::RenderWindow &window, int * px, std::vector<std::string> names)
+int enter_names(sf::RenderWindow &window, int * px, std::vector<std::string> &names)
 {
 
   std::cout << "Enter users screen running" << std::endl;
@@ -21,6 +21,9 @@ int enter_names(sf::RenderWindow &window, int * px, std::vector<std::string> nam
 
   //Variable to store amount of players to name
   int usersleft = *px;
+  std::string enteredname;
+  int counter = 1;
+
 
     //Set texture as a sprite
     sf::Sprite background(texture);
@@ -120,8 +123,21 @@ int enter_names(sf::RenderWindow &window, int * px, std::vector<std::string> nam
                   if(event.mouseButton.x < 375 && event.mouseButton.x > 275 && event.mouseButton.y < 400 && event.mouseButton.y > 300){
 
                     std::cout << "Enter Button clicked" <<std::endl;
-                    usersleft--;
-                    std::cout << "users left: " << usersleft << std::endl;
+                    usersleft--; counter++;
+                    enteredname = playerinput;
+                    names.push_back(enteredname);
+                    playerinput.clear();
+                    playertxt.setString(playerinput);
+                    window.draw(playertxt);
+                    switch(counter){
+                      case 2: dsplytxt.setString("Enter player 2's name: "); break;
+                      case 3: dsplytxt.setString("Enter player 3's name: "); break;
+                      case 4: dsplytxt.setString("Enter player 4's name: "); break;
+                    }
+                    window.draw(dsplytxt);
+                    window.display();
+
+                    std::cout << "users left: " << usersleft << "  name entered: "<< enteredname << std::endl;
 
                     if(usersleft == 0){
                     return 4;
@@ -133,7 +149,7 @@ int enter_names(sf::RenderWindow &window, int * px, std::vector<std::string> nam
               }
           if (event.type == sf::Event::TextEntered){
               if(event.text.unicode < 128){
-                if(event.text.unicode == '\b'){
+                if(event.text.unicode == '\b' && playerinput.begin() != playerinput.end()){
 
                   playerinput.erase(playerinput.getSize()-1, 1);
                   playertxt.setString(playerinput);

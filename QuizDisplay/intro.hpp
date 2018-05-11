@@ -5,6 +5,6 @@
 #include <SFML/OpenGL.hpp>
 #include <iostream>
 
-void intro();
+int intro(sf::RenderWindow &window);
 
 #endif

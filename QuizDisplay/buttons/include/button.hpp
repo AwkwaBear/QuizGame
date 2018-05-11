@@ -27,8 +27,8 @@ Permission is granted to anyone to use this software for any purpose, including 
 #include <iostream>
 
 #include <SFML/Graphics.hpp>
-#include <THOR/Shapes.hpp>
-#include <THOR/Graphics.hpp>
+#include "Thor/include/Thor/Shapes.hpp"
+#include "Thor/include/Thor/Graphics.hpp"
 
 namespace gui
 {

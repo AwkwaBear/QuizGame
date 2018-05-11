@@ -1,11 +1,8 @@
 #include "intro.hpp"
 
 
-void intro()
+int intro(sf::RenderWindow &window)
 {
-    // create the window
-    sf::RenderWindow window(sf::VideoMode(800, 600), "Quiz Game");
-    window.setFramerateLimit(15);
 
     //Load Background picture and create texture object
     sf::Texture texture;
@@ -54,7 +51,7 @@ void intro()
     // define a 120x50 rectangle
     sf::RectangleShape startbutton(sf::Vector2f(120, 50));
 
-    // change the size to 100x100
+    // change the size to 300x100
     startbutton.setSize(sf::Vector2f(300, 100));
 
     sf::FloatRect buttonRect = startbutton.getLocalBounds();
@@ -86,10 +83,28 @@ void intro()
             // "close requested" event: we close the window
             if (event.type == sf::Event::Closed)
                 window.close();
-        }
+            if (event.type == sf::Event::MouseButtonPressed){
+                if (event.mouseButton.button == sf::Mouse::Left){
+                  std::cout << "button position x: " << startbutton.getPosition().x <<std::endl;
+                  std::cout << "button position y: " << startbutton.getPosition().y <<std::endl;
+                  std::cout << "the right click was pressed" << std::endl;
+                  std::cout << "mouse x: " << event.mouseButton.x << std::endl;
+                  std::cout << "mouse y: " << event.mouseButton.y << std::endl;
+                  if(event.mouseButton.x < 550 && event.mouseButton.x > 250 && event.mouseButton.y < 450 && event.mouseButton.y > 350){
 
-        // clear the window with black color
-//        window.clear(sf::Color::Black);
+                  //  window.close();
+                    // clear the window with black color
+                 window.clear(sf::Color::Black);
+                 // end the current frame
+                 window.display();
+               return 2;
+                  }
+                }
+              }
+        }
+        // get the local mouse position (relative to a window)
+      //  sf::Vector2i localPosition = sf::Mouse::getPosition(window);
+
 
         // draw everything here...
         // window.draw(...);
@@ -98,5 +113,5 @@ void intro()
         window.display();
     }
 
-    return;
+    return 0;
 }

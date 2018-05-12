@@ -7,7 +7,7 @@ user::user(){
 	score = 0;
 	standing = 0;
 	answer = 0;
-	info stats();
+	stats = info();
 }
 
 //Overloaded Constructor
@@ -55,15 +55,3 @@ void user::setAnswer(int a){
 void user::setStats(info s){
 	stats = s;
 }
-
-//get  % of player's right answers
-double rightPerc(void){
-	return stats.getRight();
-}
-
-//get % of player's wrong answers
-double wrongPerc(void){
-	return stats.getWrong();
-}
-
-

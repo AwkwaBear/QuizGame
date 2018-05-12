@@ -1,14 +1,18 @@
 /*File: user.hpp
  *
  */
+#ifndef USER_H
+#define USER_H
+
 #include "info.hpp"
+#include <string>
 
 class user{
     private:
         std::string name;
         int score;
         int standing;
-	int answer; //interacts w/Question/Answer class
+	       int answer; //interacts w/Question/Answer class
         info stats; //make class for this
 
    public:
@@ -22,7 +26,7 @@ class user{
         std::string getName(void);
         int getScore(void);
         int getStanding(void);
-	int getAnswer(void);
+	      int getAnswer(void);
         info getStats(void);
 
         //Set functions
@@ -32,10 +36,7 @@ class user{
 	void setAnswer(int a);
         void setStats(info s);
 
-	//get  % of player's right answers
-	double rightPerc(void);
-
-	//get % of player's wrong answers
-	double wrongPerc(void);
 
 };
+
+#endif

@@ -1,5 +1,6 @@
 #include "user.hpp"
 #include "info.hpp"
+#include <iostream>
 
 //Default Constructor
 user::user(){
@@ -7,12 +8,21 @@ user::user(){
 	score = 0;
 	standing = 0;
 	answer = 0;
-	info stats();
+	stats = info();
 }
 
 //Overloaded Constructor
 user::user(std::string n){
 	name = n;
+	score = 0;
+	standing = 0;
+	answer = 0;
+	stats = info();
+}
+
+void user::addpoint(void){
+	std::cout << "adding point" << std::endl;
+	score = score + 1;
 }
 
 //Getters
@@ -55,15 +65,3 @@ void user::setAnswer(int a){
 void user::setStats(info s){
 	stats = s;
 }
-
-//get  % of player's right answers
-double rightPerc(void){
-	return stats.getRight();
-}
-
-//get % of player's wrong answers
-double wrongPerc(void){
-	return stats.getWrong();
-}
-
-

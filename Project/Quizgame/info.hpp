@@ -1,7 +1,8 @@
 /*File: info.hpp
  *
  */
-
+#ifndef INFO_H
+#define INFO_H
 class info{
 
 public:
@@ -25,9 +26,11 @@ public:
 	void setT(double t);
 
 private:
-	
+
 	double right;
 	double wrong;
 	double total;
 
 };
+
+#endif

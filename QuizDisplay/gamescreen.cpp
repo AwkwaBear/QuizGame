@@ -1,7 +1,11 @@
 #include "gamescreen.hpp"
+#include "user.hpp"
+#include "questionbank/answers.hpp"
+#include "questionbank/questions.hpp"
+#include "questionbank/topics.hpp"
 
 
-int gamescreen(sf::RenderWindow &window, std::vector<user> users){
+int gamescreen(sf::RenderWindow &window, std::vector<user> users, int * userspx){
 
   std::cout << "Enter gamescreen running" << std::endl;
     //Load Background picture and create texture object
@@ -35,6 +39,27 @@ int gamescreen(sf::RenderWindow &window, std::vector<user> users){
     sf::Text p3scoretxt;
     sf::Text p4nametxt;
     sf::Text p4scoretxt;
+
+
+
+    //Declare and generate topics
+    topic cpp;
+    topic pop;
+    topic history;
+    topic hawaii;
+
+    //run topic initialization
+    cpp.generate_topic_cpp();
+    pop.generate_topic_pop();
+    history.generate_topic_history();
+    hawaii.generate_topic_hawaii();
+
+    //create iterators for each topic vector
+    std::vector<question>::iterator cpp_it = cpp.get_topic_begin();
+    std::vector<question>::iterator pop_it = pop.get_topic_begin();
+    std::vector<question>::iterator history_it = history.get_topic_begin();
+    std::vector<question>::iterator hawaii_it = hawaii.get_topic_begin();
+    std::vector<question>::iterator current_it = cpp.get_topic_begin();
 
 
     // select the font
@@ -183,7 +208,16 @@ int gamescreen(sf::RenderWindow &window, std::vector<user> users){
     // run the program as long as the window is open
     while (window.isOpen())
       {
+        //for loop will iterate through topics 1 at a time
+        for(int i = 0; i < 10; i++){
 
+          //switch case will run through topics one at a time
+          switch(i % 4){
+            case 1: current_it = cpp_it + i; break;
+            case 2: current_it = pop_it + i; break;
+            case 3: current_it = history_it + i; break;
+            case 4: current_it = cpp_it + i; break;
+          }
 
         //draw background image on screen
         window.draw(background);
@@ -205,8 +239,30 @@ int gamescreen(sf::RenderWindow &window, std::vector<user> users){
         window.draw(p3scoretxt);
         window.draw(p4scoretxt);
 
+        // set the string to display
+        qtxt.setString(current_it->get_question());
+        answer1txt.setString(current_it->get_answer(1).read_answer());
+        answer2txt.setString(current_it->get_answer(2).read_answer());
+        answer3txt.setString(current_it->get_answer(3).read_answer());
+        answer4txt.setString(current_it->get_answer(4).read_answer());
+        p1nametxt.setString(users[0].getName());
+        p1scoretxt.setString(std::to_string(users[0].getScore()));
+      if(*userspx >= 2){
+        p2nametxt.setString(users[1].getName());
+        p2scoretxt.setString(std::to_string(users[1].getScore()));
+      }
+      if(*userspx >= 3){
+        p3nametxt.setString(users[2].getName());
+        p3scoretxt.setString(std::to_string(users[2].getScore()));
+      }
+      if(*userspx == 4){
+        p4nametxt.setString(users[3].getName());
+        p4scoretxt.setString(std::to_string(users[3].getScore()));
+      }
 
-  // check all the window's events that were triggered since the last iteration of the loop
+
+
+// check all the window's events that were triggered since the last iteration of the loop
     sf::Event event;
     while (window.pollEvent(event))
     {
@@ -223,16 +279,15 @@ int gamescreen(sf::RenderWindow &window, std::vector<user> users){
                   std::cout << "mouse y: " << event.mouseButton.y << std::endl;
 
                   //If Enter button is pressed
-/*                 if(event.mouseButton.x < 375 && event.mouseButton.x > 275 && event.mouseButton.y < 400 && event.mouseButton.y > 300){
+               if(event.mouseButton.x < 375 && event.mouseButton.x > 275 && event.mouseButton.y < 400 && event.mouseButton.y > 300){
 
 
-                    std::cout << "users left: " << usersleft << "  name entered: "<< enteredname << std::endl;
 
-                    if(usersleft == 0){
-                    return 4;
+
+
                     }
                   }
-*/
+
 
                 }
               }
@@ -249,15 +304,14 @@ int gamescreen(sf::RenderWindow &window, std::vector<user> users){
                 }
               }
           }
-  */
+
             window.display();
     }
-
-//    window.draw(playertxt);
-    window.display();
+*/
         // end the current frame
         window.display();
 
-      }
+      }//end for loop
+    }//end outer while
     return 0;
 }

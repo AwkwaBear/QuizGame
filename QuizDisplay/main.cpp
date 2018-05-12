@@ -57,7 +57,7 @@ int main(){
         std::cout<< "user in stack" << uit->getName() << std::endl;
       }
       if(gamestate == 4){
-        gamestate = gamescreen(window, users);
+        gamestate = gamescreen(window, users, playerspx);
         window.clear(sf::Color::Black);
         // end the current frame
         window.display();

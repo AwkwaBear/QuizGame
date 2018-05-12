@@ -4,6 +4,8 @@
 int intro(sf::RenderWindow &window)
 {
 
+
+
     //Load Background picture and create texture object
     sf::Texture texture;
     if (!texture.loadFromFile("background.jpg"))
@@ -91,7 +93,7 @@ int intro(sf::RenderWindow &window)
                   std::cout << "mouse x: " << event.mouseButton.x << std::endl;
                   std::cout << "mouse y: " << event.mouseButton.y << std::endl;
                   if(event.mouseButton.x < 550 && event.mouseButton.x > 250 && event.mouseButton.y < 450 && event.mouseButton.y > 350){
-
+                
                   //  window.close();
                     // clear the window with black color
                  window.clear(sf::Color::Black);

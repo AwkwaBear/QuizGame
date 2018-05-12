@@ -9,6 +9,7 @@
 #include <SFML/Window.hpp>
 #include <SFML/OpenGL.hpp>
 
+
 int main(){
 
   // create the window

@@ -22,7 +22,7 @@ user::user(std::string n){
 
 void user::addpoint(void){
 	std::cout << "adding point" << std::endl;
-	score++;
+	score = score + 1;
 }
 
 //Getters

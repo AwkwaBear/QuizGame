@@ -301,7 +301,7 @@ int gamescreen(sf::RenderWindow &window, std::vector<user> users, int * userspx)
        if (event.type == sf::Event::TextEntered){
           if(event.text.unicode > 96 && event.text.unicode < 101){
             lastinput = event.text.unicode;
-              users[countinput].setAnswer(lastinput);
+              users[countinput-1].setAnswer(lastinput);
               if(lastinput == 97){
                 answernum = 1;
                 std::cout << "answernum: " << answernum <<std::endl;
@@ -319,7 +319,7 @@ int gamescreen(sf::RenderWindow &window, std::vector<user> users, int * userspx)
                 std::cout << "answernum: " << answernum <<std::endl;
               }
               if(current_it->get_answer(answernum).check_answer() == 1){
-                  users[countinput].addpoint();
+                  users[countinput-1].addpoint();
                   std::cout << "answer correct"  << std::endl;
                 }
                 countinput++;
@@ -329,7 +329,7 @@ int gamescreen(sf::RenderWindow &window, std::vector<user> users, int * userspx)
               answernum = 0;
 
               p1scoretxt.setString(std::to_string(users[0].getScore()));
-              std::cout <<"player 1 score is" << users[0].getScore() << std::endl;
+              std::cout <<"player 1 score is " << users[0].getScore() << std::endl;
             if(*userspx >= 2){
               p2nametxt.setString(users[1].getName());
               p2scoretxt.setString(std::to_string(users[1].getScore()));

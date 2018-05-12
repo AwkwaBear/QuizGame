@@ -4,6 +4,7 @@
 int enter_names(sf::RenderWindow &window, int * px, std::vector<std::string> &names)
 {
 
+
   std::cout << "Enter users screen running" << std::endl;
     //Load Background picture and create texture object
     sf::Texture texture;
@@ -149,6 +150,7 @@ int enter_names(sf::RenderWindow &window, int * px, std::vector<std::string> &na
               }
           if (event.type == sf::Event::TextEntered){
               if(event.text.unicode < 128){
+          
                 if(event.text.unicode == '\b' && playerinput.begin() != playerinput.end()){
 
                   playerinput.erase(playerinput.getSize()-1, 1);

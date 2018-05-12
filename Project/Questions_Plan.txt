@@ -1,3 +1,9 @@
+
+
+
+This file contains the notes we took when drafting out the questions and topics modules
+
+
 //This is an example for the format of the questions in the text file
 //Each text file will be of a different topic
 //When the game is initialized a vector for each topic will be created
@@ -134,7 +140,6 @@ Calico
 -while loop for while text != EOF
 -call function create_question() read in first line of text and generate a question with 'string question' equal to first line
 -create_question() will then call the create answers function shown above
--the question will be stored in the topic vector 
+-the question will be stored in the topic vector
 -loop will repeat until txt file is at EOF
 -the topic vector will be randomized using std::random_shuffle()
-

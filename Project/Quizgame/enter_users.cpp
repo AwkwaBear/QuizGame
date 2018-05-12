@@ -1,8 +1,10 @@
 #include "enter_users.hpp"
-
+#include <SFML/Audio.hpp>
 
 int enter_users(sf::RenderWindow &window, int * px)
 {
+
+
   std::cout << "Enter users screen running" << std::endl;
     //Load Background picture and create texture object
     sf::Texture texture;
@@ -146,7 +148,7 @@ int enter_users(sf::RenderWindow &window, int * px)
                   if(event.mouseButton.x < 375 && event.mouseButton.x > 275 && event.mouseButton.y < 400 && event.mouseButton.y > 300){
 
                     *px = 1;
-
+                  
                     std::cout << "button 1 clicked" <<std::endl;
 
                     return 3;

@@ -3,6 +3,7 @@
 #include "enter_names.hpp"
 #include "user.hpp"
 #include "gamescreen.hpp"
+#include "end.hpp"
 #include <string>
 #include <SFML/Graphics.hpp>
 #include <SFML/Window.hpp>
@@ -12,7 +13,7 @@ int main(){
 
   // create the window
   sf::RenderWindow window(sf::VideoMode(800, 600), "Quiz Game");
-  window.setFramerateLimit(15);
+  window.setFramerateLimit(60);
 
   int gamestate = 1;
   int players = 0;
@@ -61,6 +62,9 @@ int main(){
         window.clear(sf::Color::Black);
         // end the current frame
         window.display();
+      }
+      if(gamestate == 5){
+        gamestate = end(window);
       }
 
       if (event.type == sf::Event::Closed || gamestate == 4){//begin if

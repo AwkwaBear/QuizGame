@@ -327,7 +327,7 @@ int gamescreen(sf::RenderWindow &window, std::vector<user> users, int * userspx)
                 countinput = 1; i++;
               }
               answernum = 0;
-              
+
               p1scoretxt.setString(std::to_string(users[0].getScore()));
               std::cout <<"player 1 score is" << users[0].getScore() << std::endl;
             if(*userspx >= 2){
@@ -344,7 +344,6 @@ int gamescreen(sf::RenderWindow &window, std::vector<user> users, int * userspx)
             }
             window.display();
             }
-
           }
 
 
@@ -353,6 +352,10 @@ int gamescreen(sf::RenderWindow &window, std::vector<user> users, int * userspx)
         }//end event while loop
       // end the current frame
       window.display();
+            window.clear(sf::Color::Black);
+    if(i == 25){
+      return 5;
+    }
     }//end outer while loop
 
     return 0;

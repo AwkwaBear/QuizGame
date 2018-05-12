@@ -5,3 +5,8 @@ display_test: main.cpp intro.cpp intro.hpp enter_users.cpp enter_users.hpp enter
 button_test:
 	g++ -c buttons/main.cpp buttons/include/button.hpp buttons/src/button.cpp
 	g++ main.o button.o -o button_test -lsfml-graphics -lsfml-window -lsfml-system
+
+clean:
+	rm *.o
+	rm *.hpp.gch
+	rm display_test

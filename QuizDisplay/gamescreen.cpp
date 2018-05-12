@@ -41,9 +41,10 @@ int gamescreen(sf::RenderWindow &window, std::vector<user> users, int * userspx)
     sf::Text p4nametxt;
     sf::Text p4scoretxt;
 
-
-    //vaiable to store last player choice
-    int lastinput = -1;
+    int i = 0;
+    int countinput = 1;
+    char lastinput = 'f';
+    int answernum = 0;
     //Declare and generate topics
     topic cpp;
     topic pop;
@@ -101,11 +102,11 @@ int gamescreen(sf::RenderWindow &window, std::vector<user> users, int * userspx)
 
     // set the character size
     //In pixels NOT POINTS!!
-    qtxt.setCharacterSize(20);
-    answer1txt.setCharacterSize(20);
-    answer2txt.setCharacterSize(20);
-    answer3txt.setCharacterSize(20);
-    answer4txt.setCharacterSize(20);
+    qtxt.setCharacterSize(10);
+    answer1txt.setCharacterSize(15);
+    answer2txt.setCharacterSize(15);
+    answer3txt.setCharacterSize(15);
+    answer4txt.setCharacterSize(15);
     answeringplyrtxt.setCharacterSize(20);
     p1nametxt.setCharacterSize(20);
     p2nametxt.setCharacterSize(20);
@@ -210,20 +211,18 @@ int gamescreen(sf::RenderWindow &window, std::vector<user> users, int * userspx)
     // run the program as long as the window is open
     while (window.isOpen())
       {
-        //for loop will iterate through topics 1 at a time
-        for(int i = 0; i < 10; i++){
 
-          //switch case will run through topics one at a time
-          switch(i % 4){
-            case 1: current_it = cpp_it + i; break;
-            case 2: current_it = pop_it + i; break;
-            case 3: current_it = history_it + i; break;
-            case 4: current_it = cpp_it + i; break;
-          }
+        switch(i%4){
+          case 1: current_it = cpp_it + i; break;
+          case 2: current_it = pop_it + i; break;
+          case 3: current_it = history_it + i; break;
+          case 4: current_it = hawaii_it + i; break;
+
+        }
+
 
         //draw background image on screen
         window.draw(background);
-        std::cout << "drawing background" << std::endl;
 
 
 
@@ -265,8 +264,8 @@ int gamescreen(sf::RenderWindow &window, std::vector<user> users, int * userspx)
 
       window.display();
 
-for(int j = 0; j < *userspx; j++){
-  switch(j){
+
+  switch(countinput){
     case 1: answeringplyrtxt.setString("Player 1"); break;
     case 2: answeringplyrtxt.setString("Player 2");  break;
     case 3: answeringplyrtxt.setString("Player 3");  break;
@@ -293,16 +292,7 @@ for(int j = 0; j < *userspx; j++){
 
 
 
-  while(lastinput == -1){
-  std::cin >> lastinput;
-  if(lastinput != -1){
-  users[j].setAnswer(lastinput);
-    if(current_it->get_answer(lastinput).check_answer() == 1 ){
-      users[j].setScore(users[j].getScore() + 1);
-    }
-  }
-  }
-    lastinput = -1;
+
 
 // check all the window's events that were triggered since the last iteration of the loop
     sf::Event event;
@@ -320,40 +310,52 @@ for(int j = 0; j < *userspx; j++){
                   std::cout << "mouse x: " << event.mouseButton.x << std::endl;
                   std::cout << "mouse y: " << event.mouseButton.y << std::endl;
 
-                  //If Enter button is pressed
-               if(event.mouseButton.x < 375 && event.mouseButton.x > 275 && event.mouseButton.y < 400 && event.mouseButton.y > 300){
-
-
-
-
-
-                    }
                   }
 
 
                 }
-              }
-/*          if (event.type == sf::Event::TextEntered){
-              if(event.text.unicode < 128){
-                if(event.text.unicode == '\b' && playerinput.begin() != playerinput.end()){
 
-                  playerinput.erase(playerinput.getSize()-1, 1);
-                  playertxt.setString(playerinput);
-                }
-                else{
-                  playerinput +=event.text.unicode;
-                  playertxt.setString(playerinput);
-                }
+       if (event.type == sf::Event::TextEntered){
+          if(event.text.unicode > 96 && event.text.unicode < 101){
+            lastinput = event.text.unicode;
+              users[countinput].setAnswer(lastinput);
+              if(lastinput == 97){
+                answernum = 1;
+                std::cout << "answernum: " << answernum <<std::endl;
               }
+              if(lastinput == 98){
+                answernum = 2;
+                std::cout << "answernum: " << answernum <<std::endl;
+              }
+              if(lastinput == 99){
+                answernum = 3;
+                std::cout << "answernum: " << answernum <<std::endl;
+              }
+              if(lastinput == 100){
+                answernum = 4;
+                std::cout << "answernum: " << answernum <<std::endl;
+              }
+              if(current_it->get_answer(answernum).check_answer() == 1){
+                  users[countinput].setScore(users[countinput].getScore() + 1);
+                  std::cout << "answer correct"  << std::endl;
+                }
+                countinput++;
+              if(countinput > *userspx){
+                countinput = 1; i++;
+              }
+              answernum = 0;
+
+            }
+
           }
 
-            window.display();
-    }
-*/
+
+
+
+        }//end event while loop
             // end the current frame
             window.display();
-        }//end user input loop
-      }//end question for loop
-    }//end outer while
+    }//end outer while loop
+
     return 0;
 }

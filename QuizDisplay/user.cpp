@@ -13,6 +13,10 @@ user::user(){
 //Overloaded Constructor
 user::user(std::string n){
 	name = n;
+	score = 0;
+	standing = 0;
+	answer = 0;
+	stats = info();
 }
 
 //Getters

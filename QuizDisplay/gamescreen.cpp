@@ -1,11 +1,12 @@
 #include "gamescreen.hpp"
 #include "user.hpp"
-#include "questionbank/answers.hpp"
-#include "questionbank/questions.hpp"
-#include "questionbank/topics.hpp"
+#include "answers.hpp"
+#include "questions.hpp"
+#include "topics.hpp"
 
 
 int gamescreen(sf::RenderWindow &window, std::vector<user> users, int * userspx){
+
 
   std::cout << "Enter gamescreen running" << std::endl;
     //Load Background picture and create texture object
@@ -41,7 +42,8 @@ int gamescreen(sf::RenderWindow &window, std::vector<user> users, int * userspx)
     sf::Text p4scoretxt;
 
 
-
+    //vaiable to store last player choice
+    int lastinput = -1;
     //Declare and generate topics
     topic cpp;
     topic pop;
@@ -78,7 +80,7 @@ int gamescreen(sf::RenderWindow &window, std::vector<user> users, int * userspx)
     p3scoretxt.setFont(Cammron);
     p4scoretxt.setFont(Cammron);
 
-
+/*
     // set the string to display
     qtxt.setString("Test Question here");
     answer1txt.setString("Answer 1");
@@ -94,7 +96,7 @@ int gamescreen(sf::RenderWindow &window, std::vector<user> users, int * userspx)
     p2scoretxt.setString("0");
     p3scoretxt.setString("0");
     p4scoretxt.setString("0");
-
+*/
 
 
     // set the character size
@@ -221,23 +223,9 @@ int gamescreen(sf::RenderWindow &window, std::vector<user> users, int * userspx)
 
         //draw background image on screen
         window.draw(background);
+        std::cout << "drawing background" << std::endl;
 
 
-        //Write Text to screen
-        window.draw(qtxt);
-        window.draw(answer1txt);
-        window.draw(answer2txt);
-        window.draw(answer3txt);
-        window.draw(answer4txt);
-        window.draw(answeringplyrtxt);
-        window.draw(p1nametxt);
-        window.draw(p2nametxt);
-        window.draw(p3nametxt);
-        window.draw(p4nametxt);
-        window.draw(p1scoretxt);
-        window.draw(p2scoretxt);
-        window.draw(p3scoretxt);
-        window.draw(p4scoretxt);
 
         // set the string to display
         qtxt.setString(current_it->get_question());
@@ -259,8 +247,62 @@ int gamescreen(sf::RenderWindow &window, std::vector<user> users, int * userspx)
         p4nametxt.setString(users[3].getName());
         p4scoretxt.setString(std::to_string(users[3].getScore()));
       }
+      //Write Text to screen
+      window.draw(qtxt);
+      window.draw(answer1txt);
+      window.draw(answer2txt);
+      window.draw(answer3txt);
+      window.draw(answer4txt);
+      window.draw(answeringplyrtxt);
+      window.draw(p1nametxt);
+      window.draw(p2nametxt);
+      window.draw(p3nametxt);
+      window.draw(p4nametxt);
+      window.draw(p1scoretxt);
+      window.draw(p2scoretxt);
+      window.draw(p3scoretxt);
+      window.draw(p4scoretxt);
+
+      window.display();
+
+for(int j = 0; j < *userspx; j++){
+  switch(j){
+    case 1: answeringplyrtxt.setString("Player 1"); break;
+    case 2: answeringplyrtxt.setString("Player 2");  break;
+    case 3: answeringplyrtxt.setString("Player 3");  break;
+    case 4: answeringplyrtxt.setString("Player 4"); break;
+
+  }
+  //Write Text to screen
+  window.draw(qtxt);
+  window.draw(answer1txt);
+  window.draw(answer2txt);
+  window.draw(answer3txt);
+  window.draw(answer4txt);
+  window.draw(answeringplyrtxt);
+  window.draw(p1nametxt);
+  window.draw(p2nametxt);
+  window.draw(p3nametxt);
+  window.draw(p4nametxt);
+  window.draw(p1scoretxt);
+  window.draw(p2scoretxt);
+  window.draw(p3scoretxt);
+  window.draw(p4scoretxt);
+
+  window.display();
 
 
+
+  while(lastinput == -1){
+  std::cin >> lastinput;
+  if(lastinput != -1){
+  users[j].setAnswer(lastinput);
+    if(current_it->get_answer(lastinput).check_answer() == 1 ){
+      users[j].setScore(users[j].getScore() + 1);
+    }
+  }
+  }
+    lastinput = -1;
 
 // check all the window's events that were triggered since the last iteration of the loop
     sf::Event event;
@@ -308,10 +350,10 @@ int gamescreen(sf::RenderWindow &window, std::vector<user> users, int * userspx)
             window.display();
     }
 */
-        // end the current frame
-        window.display();
-
-      }//end for loop
+            // end the current frame
+            window.display();
+        }//end user input loop
+      }//end question for loop
     }//end outer while
     return 0;
 }

@@ -55,7 +55,7 @@ int gamescreen(sf::RenderWindow &window, std::vector<user> users){
 
 
     // set the string to display
-    questiontxt.setString("Test Question here");
+    qtxt.setString("Test Question here");
     answer1txt.setString("Answer 1");
     answer2txt.setString("Answer 2");
     answer3txt.setString("Answer 3");
@@ -74,106 +74,110 @@ int gamescreen(sf::RenderWindow &window, std::vector<user> users){
 
     // set the character size
     //In pixels NOT POINTS!!
-    qtxt.setCharacterSize(10);
-    answer1txt.setCharacterSize(10);
-    answer2txt.setCharacterSize(10);
-    answer3txt.setCharacterSize(10);
-    answer4txt.setCharacterSize(10);
-    answer5txt.setCharacterSize(10);
-    answeringplyrtxt.setCharacterSize(10);
-    p1nametxt.setCharacterSize(10);
-    p2nametxt.setCharacterSize(10);
-    p3nametxt.setCharacterSize(10);
-    p4nametxt.setCharacterSize(10);
-    p1scoretxt.setCharacterSize(10);
-    p2scoretxt.setCharacterSize(10);
-    p3scoretxt.setCharacterSize(10);
-    p4scoretxt.setCharacterSize(10);
+    qtxt.setCharacterSize(20);
+    answer1txt.setCharacterSize(20);
+    answer2txt.setCharacterSize(20);
+    answer3txt.setCharacterSize(20);
+    answer4txt.setCharacterSize(20);
+    answeringplyrtxt.setCharacterSize(20);
+    p1nametxt.setCharacterSize(20);
+    p2nametxt.setCharacterSize(20);
+    p3nametxt.setCharacterSize(20);
+    p4nametxt.setCharacterSize(20);
+    p1scoretxt.setCharacterSize(40);
+    p2scoretxt.setCharacterSize(40);
+    p3scoretxt.setCharacterSize(40);
+    p4scoretxt.setCharacterSize(40);
 
     // set the color
-    qtxt.setFillColor(sf::Color::Black);
-    answer1txt.setFillColor(sf::Color::Black);
-    answer2txt.setFillColor(sf::Color::Black);
-    answer3txt.setFillColor(sf::Color::Black);
-    answer4txt.setFillColor(sf::Color::Black);
-    answeringplyrtxt.setFillColor(sf::Color::Black);
-    p1nametxt.setFillColor(sf::Color::Black);
-    p2nametxt.setFillColor(sf::Color::Black);
-    p3nametxt.setFillColor(sf::Color::Black);
-    p4nametxt.setFillColor(sf::Color::Black);
-    p1scoretxt.setFillColor(sf::Color::Black);
-    p2scoretxt.setFillColor(sf::Color::Black);
-    p3scoretxt.setFillColor(sf::Color::Black);
-    p4scoretxt.setFillColor(sf::Color::Black);
+    qtxt.setFillColor(sf::Color::White);
+    answer1txt.setFillColor(sf::Color::White);
+    answer2txt.setFillColor(sf::Color::White);
+    answer3txt.setFillColor(sf::Color::White);
+    answer4txt.setFillColor(sf::Color::White);
+    answeringplyrtxt.setFillColor(sf::Color::White);
+    p1nametxt.setFillColor(sf::Color::White);
+    p2nametxt.setFillColor(sf::Color::White);
+    p3nametxt.setFillColor(sf::Color::White);
+    p4nametxt.setFillColor(sf::Color::White);
+    p1scoretxt.setFillColor(sf::Color::White);
+    p2scoretxt.setFillColor(sf::Color::White);
+    p3scoretxt.setFillColor(sf::Color::White);
+    p4scoretxt.setFillColor(sf::Color::White);
 
 
 
     // set the text style
+    qtxt.setStyle(sf::Text::Bold);
     answer1txt.setStyle(sf::Text::Bold);
     answer2txt.setStyle(sf::Text::Bold);
     answer3txt.setStyle(sf::Text::Bold);
     answer4txt.setStyle(sf::Text::Bold);
     answeringplyrtxt.setStyle(sf::Text::Bold);
+    p1nametxt.setStyle(sf::Text::Bold);
+    p2nametxt.setStyle(sf::Text::Bold);
+    p3nametxt.setStyle(sf::Text::Bold);
+    p4nametxt.setStyle(sf::Text::Bold);
     p1scoretxt.setStyle(sf::Text::Bold);
     p2scoretxt.setStyle(sf::Text::Bold);
     p3scoretxt.setStyle(sf::Text::Bold);
     p4scoretxt.setStyle(sf::Text::Bold);
 
-    sf::FloatRect qrect = qtxt.getLocalBounds();
-    qtxt.setOrigin(qrect.width/2,qrect.height/2);
+//    sf::FloatRect qrect = qtxt.getLocalBounds();
+//    qtxt.setOrigin(qrect.width/2,qrect.height/2);
     qtxt.setPosition(sf::Vector2f(10,15));
 
-    sf::FloatRect a1rect = answer1txt.getLocalBounds();
-    answer1txt.setOrigin(a1rect.width/2,a1rect.height/2);
+//    sf::FloatRect a1rect = answer1txt.getLocalBounds();
+//    answer1txt.setOrigin(a1rect.width/2,a1rect.height/2);
     answer1txt.setPosition(sf::Vector2f(10,230));
 
-    sf::FloatRect a2rect = answer2txt.getLocalBounds();
-    answer2txt.setOrigin(a2rect.width/2,a2rect.height/2);
+//    sf::FloatRect a2rect = answer2txt.getLocalBounds();
+//    answer2txt.setOrigin(a2rect.width/2,a2rect.height/2);
     answer2txt.setPosition(sf::Vector2f(300,230));
 
-    sf::FloatRect a3rect = answer3txt.getLocalBounds();
-    answer3txt.setOrigin(a3rect.width/2,a3rect.height/2);
+//    sf::FloatRect a3rect = answer3txt.getLocalBounds();
+//    answer3txt.setOrigin(a3rect.width/2,a3rect.height/2);
     answer3txt.setPosition(sf::Vector2f(10,365));
 
-    sf::FloatRect a4rect = answer4txt.getLocalBounds();
-    answer4txt.setOrigin(a4rect.width/2,a4rect.height/2);
+//    sf::FloatRect a4rect = answer4txt.getLocalBounds();
+//    answer4txt.setOrigin(a4rect.width/2,a4rect.height/2);
     answer4txt.setPosition(sf::Vector2f(300,365));
 
-    sf::FloatRect answeringrect = answeringplyrtxt.getLocalBounds();
-    answeringplyrtxt.setOrigin(answeringrect.width/2,answeringrect.height/2);
-    answeringplyrtxt.setPosition(sf::Vector2f(10,470));
+//    sf::FloatRect answeringrect = answeringplyrtxt.getLocalBounds();
+//    answeringplyrtxt.setOrigin(answeringrect.width/2,answeringrect.height/2);
+    answeringplyrtxt.setPosition(sf::Vector2f(20,470));
 
-    sf::FloatRect p1nrect = p1nametxt.getLocalBounds();
-    p1nametxt.setOrigin(p1nrect.width/2, p1nrect.height/2);
-    p1nametxt.setPosition(sf::Vector2f(590,10));
+//    sf::FloatRect p1nrect = p1nametxt.getLocalBounds();
+//    p1nametxt.setOrigin(p1nrect.width/2, p1nrect.height/2);
+    p1nametxt.setPosition(sf::Vector2f(600,10));
 
-    sf::FloatRect p2nrect = p2nametxt.getLocalBounds();
-    p2nametxt.setOrigin(p2nrect.width/2, p2nrect.height/2);
-    p2nametxt.setPosition(sf::Vector2f(590,170));
+//    sf::FloatRect p2nrect = p2nametxt.getLocalBounds();
+//    p2nametxt.setOrigin(p2nrect.width/2, p2nrect.height/2);
+    p2nametxt.setPosition(sf::Vector2f(600,170));
 
-    sf::FloatRect p3nrect = p3nametxt.getLocalBounds();
-    p3nametxt.setOrigin(p3nrect.width/2, p3nrect.height/2);
-    p3nametxt.setPosition(sf::Vector2f(590,310));
+//   sf::FloatRect p3nrect = p3nametxt.getLocalBounds();
+//    p3nametxt.setOrigin(p3nrect.width/2, p3nrect.height/2);
+    p3nametxt.setPosition(sf::Vector2f(600,310));
 
-    sf::FloatRect p4nrect = p4nametxt.getLocalBounds();
-    p4nametxt.setOrigin(p4nrect.width/2, p4nrect.height/2);
-    p4nametxt.setPosition(sf::Vector2f(590,460));
+//    sf::FloatRect p4nrect = p4nametxt.getLocalBounds();
+//    p4nametxt.setOrigin(p4nrect.width/2, p4nrect.height/2);
+    p4nametxt.setPosition(sf::Vector2f(600,460));
 
-    sf::FloatRect p1srect = p1scoretxt.getLocalBounds();
-    p1scoretxt.setOrigin(p1srect.width/2, p1srect.height/2);
-    p1scoretxt.setPosition(sf::Vector2f(720,75));
+//    sf::FloatRect p1srect = p1scoretxt.getLocalBounds();
+//    p1scoretxt.setOrigin(p1srect.width/2, p1srect.height/2);
+    p1scoretxt.setPosition(sf::Vector2f(730,85));
 
-    sf::FloatRect p2srect = p2scoretxt.getLocalBounds();
-    p2scoretxt.setOrigin(p2srect.width/2, p2srect.height/2);
-    p2scoretxt.setPosition(sf::Vector2f(720,225));
+//    sf::FloatRect p2srect = p2scoretxt.getLocalBounds();
+//    p2scoretxt.setOrigin(p2srect.width/2, p2srect.height/2);
+    p2scoretxt.setPosition(sf::Vector2f(730,235));
 
-    sf::FloatRect p3srect = p3scoretxt.getLocalBounds();
-    p3scoretxt.setOrigin(p3srect.width/2, p3srect.height/2);
-    p3scoretxt.setPosition(sf::Vector2f(720,365));
+//    sf::FloatRect p3srect = p3scoretxt.getLocalBounds();
+//    p3scoretxt.setOrigin(p3srect.width/2, p3srect.height/2);
+    p3scoretxt.setPosition(sf::Vector2f(730,375));
 
-    sf::FloatRect p4srect = p4scoretxt.getLocalBounds();
-    p4scoretxt.setOrigin(p4srect.width/2, p4srect.height/2);
-    p4scoretxt.setPosition(sf::Vector2f(720,510));
+//    sf::FloatRect p4srect = p4scoretxt.getLocalBounds();
+//    p4scoretxt.setOrigin(p4srect.width/2, p4srect.height/2);
+    p4scoretxt.setPosition(sf::Vector2f(730,520));
 
 
     // run the program as long as the window is open

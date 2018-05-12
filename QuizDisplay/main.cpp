@@ -2,6 +2,7 @@
 #include "enter_users.hpp"
 #include "enter_names.hpp"
 #include "user.hpp"
+#include "gamescreen.hpp"
 #include <string>
 #include <SFML/Graphics.hpp>
 #include <SFML/Window.hpp>
@@ -31,13 +32,18 @@ int main(){
       std::cout << "back to main gamestate is: " << gamestate << std::endl;
       if(gamestate == 2){
         gamestate = enter_users(window,playerspx);
+        window.clear(sf::Color::Black);
+        // end the current frame
+        window.display();
       }
 
       std::cout <<"back to main gamestate is: " << gamestate <<"  users selected: " << *playerspx << std::endl;
       // "close requested" event: we close the window
       if(gamestate == 3){
         gamestate = enter_names(window,playerspx,names);
-
+        window.clear(sf::Color::Black);
+        // end the current frame
+        window.display();
       }
       std::cout <<"back to main gamestate is: " << gamestate <<"  users entered: " << std::endl;
 
@@ -50,7 +56,12 @@ int main(){
       for(uit = users.begin(); uit != users.end(); uit++){
         std::cout<< "user in stack" << uit->getName() << std::endl;
       }
-
+      if(gamestate == 4){
+        gamestate = gamescreen(window, users);
+        window.clear(sf::Color::Black);
+        // end the current frame
+        window.display();
+      }
 
       if (event.type == sf::Event::Closed || gamestate == 4){//begin if
           window.close();

@@ -22,6 +22,8 @@ class user{
 	//Overloaded Constructor
 	user(std::string n);
 
+  void addpoint(void);
+
         //Get functions
         std::string getName(void);
         int getScore(void);

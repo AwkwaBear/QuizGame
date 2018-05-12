@@ -1,5 +1,6 @@
 #include "user.hpp"
 #include "info.hpp"
+#include <iostream>
 
 //Default Constructor
 user::user(){
@@ -17,6 +18,11 @@ user::user(std::string n){
 	standing = 0;
 	answer = 0;
 	stats = info();
+}
+
+void user::addpoint(void){
+	std::cout << "adding point" << std::endl;
+	score++;
 }
 
 //Getters

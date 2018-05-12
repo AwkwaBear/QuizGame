@@ -272,23 +272,6 @@ int gamescreen(sf::RenderWindow &window, std::vector<user> users, int * userspx)
     case 4: answeringplyrtxt.setString("Player 4"); break;
 
   }
-  //Write Text to screen
-  window.draw(qtxt);
-  window.draw(answer1txt);
-  window.draw(answer2txt);
-  window.draw(answer3txt);
-  window.draw(answer4txt);
-  window.draw(answeringplyrtxt);
-  window.draw(p1nametxt);
-  window.draw(p2nametxt);
-  window.draw(p3nametxt);
-  window.draw(p4nametxt);
-  window.draw(p1scoretxt);
-  window.draw(p2scoretxt);
-  window.draw(p3scoretxt);
-  window.draw(p4scoretxt);
-
-  window.display();
 
 
 
@@ -336,7 +319,7 @@ int gamescreen(sf::RenderWindow &window, std::vector<user> users, int * userspx)
                 std::cout << "answernum: " << answernum <<std::endl;
               }
               if(current_it->get_answer(answernum).check_answer() == 1){
-                  users[countinput].setScore(users[countinput].getScore() + 1);
+                  users[countinput].addpoint();
                   std::cout << "answer correct"  << std::endl;
                 }
                 countinput++;
@@ -344,7 +327,22 @@ int gamescreen(sf::RenderWindow &window, std::vector<user> users, int * userspx)
                 countinput = 1; i++;
               }
               answernum = 0;
-
+              
+              p1scoretxt.setString(std::to_string(users[0].getScore()));
+              std::cout <<"player 1 score is" << users[0].getScore() << std::endl;
+            if(*userspx >= 2){
+              p2nametxt.setString(users[1].getName());
+              p2scoretxt.setString(std::to_string(users[1].getScore()));
+            }
+            if(*userspx >= 3){
+              p3nametxt.setString(users[2].getName());
+              p3scoretxt.setString(std::to_string(users[2].getScore()));
+            }
+            if(*userspx == 4){
+              p4nametxt.setString(users[3].getName());
+              p4scoretxt.setString(std::to_string(users[3].getScore()));
+            }
+            window.display();
             }
 
           }
@@ -353,8 +351,8 @@ int gamescreen(sf::RenderWindow &window, std::vector<user> users, int * userspx)
 
 
         }//end event while loop
-            // end the current frame
-            window.display();
+      // end the current frame
+      window.display();
     }//end outer while loop
 
     return 0;

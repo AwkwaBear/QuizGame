@@ -3,7 +3,14 @@
 
 int enter_names(sf::RenderWindow &window, int * px, std::vector<std::string> &names)
 {
+  sf::SoundBuffer buffer;
 
+  if(!buffer.loadFromFile("pling.wav")){
+    return -1;
+  }
+
+  sf::Sound pling;
+  pling.setBuffer(buffer);
 
   std::cout << "Enter users screen running" << std::endl;
     //Load Background picture and create texture object
@@ -130,6 +137,7 @@ int enter_names(sf::RenderWindow &window, int * px, std::vector<std::string> &na
                     playerinput.clear();
                     playertxt.setString(playerinput);
                     window.draw(playertxt);
+                    pling.play();
                     switch(counter){
                       case 2: dsplytxt.setString("Enter player 2's name: "); break;
                       case 3: dsplytxt.setString("Enter player 3's name: "); break;
@@ -150,7 +158,7 @@ int enter_names(sf::RenderWindow &window, int * px, std::vector<std::string> &na
               }
           if (event.type == sf::Event::TextEntered){
               if(event.text.unicode < 128){
-          
+
                 if(event.text.unicode == '\b' && playerinput.begin() != playerinput.end()){
 
                   playerinput.erase(playerinput.getSize()-1, 1);

@@ -7,7 +7,14 @@
 
 int gamescreen(sf::RenderWindow &window, std::vector<user> users, int * userspx){
 
+  sf::SoundBuffer buffer;
 
+  if(!buffer.loadFromFile("pling.wav")){
+    return -1;
+  }
+
+  sf::Sound pling;
+  pling.setBuffer(buffer);
   std::cout << "Enter gamescreen running" << std::endl;
     //Load Background picture and create texture object
     sf::Texture texture;
@@ -16,11 +23,11 @@ int gamescreen(sf::RenderWindow &window, std::vector<user> users, int * userspx)
         std::cout << "ERROR: Gamescreen Background Image Unable to Load" << std::endl;
       }
 
-      sf::Font Cammron;
-  if (!Cammron.loadFromFile("fonts/Cammron.ttf"))
+      sf::Font pfwin;
+  if (!pfwin.loadFromFile("fonts/pfwin.ttf"))
   {
       // error message
-      std::cout << "ERROR: Cammron Font Unable to Load" << std::endl;
+      std::cout << "ERROR: pfwin Font Unable to Load" << std::endl;
   }
 
     //Set texture as a sprite
@@ -66,20 +73,20 @@ int gamescreen(sf::RenderWindow &window, std::vector<user> users, int * userspx)
 
 
     // select the font
-    qtxt.setFont(Cammron); // font is a sf::Font
-    answer1txt.setFont(Cammron);
-    answer2txt.setFont(Cammron);
-    answer3txt.setFont(Cammron);
-    answer4txt.setFont(Cammron);
-    answeringplyrtxt.setFont(Cammron);
-    p1nametxt.setFont(Cammron);
-    p2nametxt.setFont(Cammron);
-    p3nametxt.setFont(Cammron);
-    p4nametxt.setFont(Cammron);
-    p1scoretxt.setFont(Cammron);
-    p2scoretxt.setFont(Cammron);
-    p3scoretxt.setFont(Cammron);
-    p4scoretxt.setFont(Cammron);
+    qtxt.setFont(pfwin); // font is a sf::Font
+    answer1txt.setFont(pfwin);
+    answer2txt.setFont(pfwin);
+    answer3txt.setFont(pfwin);
+    answer4txt.setFont(pfwin);
+    answeringplyrtxt.setFont(pfwin);
+    p1nametxt.setFont(pfwin);
+    p2nametxt.setFont(pfwin);
+    p3nametxt.setFont(pfwin);
+    p4nametxt.setFont(pfwin);
+    p1scoretxt.setFont(pfwin);
+    p2scoretxt.setFont(pfwin);
+    p3scoretxt.setFont(pfwin);
+    p4scoretxt.setFont(pfwin);
 
 /*
     // set the string to display
@@ -302,6 +309,7 @@ int gamescreen(sf::RenderWindow &window, std::vector<user> users, int * userspx)
           if(event.text.unicode > 96 && event.text.unicode < 101){
             lastinput = event.text.unicode;
               users[countinput-1].setAnswer(lastinput);
+              pling.play();
               if(lastinput == 97){
                 answernum = 1;
                 std::cout << "answernum: " << answernum <<std::endl;

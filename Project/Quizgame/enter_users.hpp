@@ -7,6 +7,7 @@
 #include <SFML/Audio/Sound.hpp>
 #include <iostream>
 
+
 int enter_users(sf::RenderWindow &window, int *px);
 
 #endif

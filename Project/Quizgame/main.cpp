@@ -8,6 +8,8 @@
 #include <SFML/Graphics.hpp>
 #include <SFML/Window.hpp>
 #include <SFML/OpenGL.hpp>
+#include <SFML/Audio.hpp>
+
 
 
 int main(){
@@ -15,6 +17,14 @@ int main(){
   // create the window
   sf::RenderWindow window(sf::VideoMode(800, 600), "Quiz Game");
   window.setFramerateLimit(60);
+  sf::Music music;
+
+
+  if(!music.openFromFile("starbox.wav")){
+    return -1;
+  }
+
+  music.play();
 
   int gamestate = 1;
   int players = 0;

@@ -4,6 +4,7 @@
 #include <SFML/Window.hpp>
 #include <SFML/OpenGL.hpp>
 #include <iostream>
+#include <SFML/Audio.hpp>
 
 
 int intro(sf::RenderWindow &window);

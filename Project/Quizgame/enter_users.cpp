@@ -3,7 +3,14 @@
 
 int enter_users(sf::RenderWindow &window, int * px)
 {
+  sf::SoundBuffer buffer;
 
+  if(!buffer.loadFromFile("pling.wav")){
+    return -1;
+  }
+
+  sf::Sound pling;
+  pling.setBuffer(buffer);
 
   std::cout << "Enter users screen running" << std::endl;
     //Load Background picture and create texture object
@@ -148,9 +155,9 @@ int enter_users(sf::RenderWindow &window, int * px)
                   if(event.mouseButton.x < 375 && event.mouseButton.x > 275 && event.mouseButton.y < 400 && event.mouseButton.y > 300){
 
                     *px = 1;
-                  
-                    std::cout << "button 1 clicked" <<std::endl;
 
+                    std::cout << "button 1 clicked" <<std::endl;
+                      pling.play();
                     return 3;
                   }
                   //If button 2 is pressed
@@ -159,7 +166,7 @@ int enter_users(sf::RenderWindow &window, int * px)
                     *px = 2;
 
                     std::cout << "button 2 clicked" <<std::endl;
-
+                      pling.play();
                     return 3;
                   }
                   //If buton 3 is pressed
@@ -168,7 +175,7 @@ int enter_users(sf::RenderWindow &window, int * px)
                     *px = 3;
 
                     std::cout << "button 3 clicked" <<std::endl;
-
+                      pling.play();
                     return 3;
                   }
                   //If buton 4 is pressed
@@ -177,7 +184,7 @@ int enter_users(sf::RenderWindow &window, int * px)
                     *px = 4;
 
                     std::cout << "button 4 clicked" <<std::endl;
-
+                      pling.play();
                     return 3;
                   }
 

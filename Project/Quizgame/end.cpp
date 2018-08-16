@@ -4,6 +4,7 @@
 int end(sf::RenderWindow &window)
 {
 
+
     //Load Background picture and create texture object
     sf::Texture texture;
     if (!texture.loadFromFile("background.jpg"))
